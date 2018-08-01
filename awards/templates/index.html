@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+{% load static %}
+{% block content %}
+{{ block.super}}
+    <h1>Welcome to IP-AWARDS</h1>
+    {% for p in profile %}
+        <h2>{{ p.user.username }}</h2>
+        <h2>{{ p.email }}</h2>
+
+    {% endfor %}
+
+    <br>
+
+    {% for project in projects %}
+    <div class="card">
+        <img src="{{ project.title_image.url }}">
+        <div class="card-body">
+        <p class="card-text">{{ project.title }}</p>
+        <a href="{{ project.github_link}}">github link</a>
+        <a href="{{ project.live_link}}">live link</a>
+
+        </div>
+    </div>
+
+    {% endfor %}
+{% endblock %}
